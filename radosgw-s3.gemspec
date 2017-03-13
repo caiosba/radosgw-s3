@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project         = "s3"
 
   s.add_dependency "proxies", "~> 0.2.0"
-  s.add_dependency "net-ssh", "~> 3.0"
+  s.add_dependency "net-ssh", "~> 2.5.1"
   s.add_development_dependency "rake", "~> 10.4"
   s.add_development_dependency "json", "~> 1.8"
   s.add_development_dependency "test-unit", "~> 3.1"
