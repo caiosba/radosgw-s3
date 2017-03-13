@@ -47,7 +47,7 @@ module S3
     # Returns all buckets in the service and caches the result (see
     # +reload+)
     def buckets
-      Proxy.new(-> { list_all_my_buckets }, :owner => self, :extend => BucketsExtension)
+      Proxy.new(lambda { list_all_my_buckets }, { :owner => self, :extend => BucketsExtension })
     end
 
     # Returns the bucket with the given name. Does not check whether the
@@ -87,7 +87,7 @@ module S3
     end
 
     def service_request(method, options = {})
-      connection.request(method, options.merge({ :path => "/#{options[:path]}") })
+      connection.request(method, options.merge({ :path => "/#{options[:path]}" }))
     end
 
     def connection
