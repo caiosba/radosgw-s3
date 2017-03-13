@@ -205,9 +205,9 @@ module S3
           request['Content-MD5'] = Base64.encode64(Digest::MD5.digest(request.body)).chomp unless request.body.empty?
         end
         unless skip_authorization
-        request['Authorization'] = Signature.generate(host: host, request: request,
-                           access_key_id: access_key_id,
-                           secret_access_key: secret_access_key)
+        request['Authorization'] = Signature.generate(:host => host, :request => request,
+                           :access_key_id => access_key_id,
+                           :secret_access_key => secret_access_key)
         end
         request
     end
