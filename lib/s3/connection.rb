@@ -206,8 +206,8 @@ module S3
         end
         unless skip_authorization
         request['Authorization'] = Signature.generate(:host => host, :request => request,
-                           :access_key_id => access_key_id,
-                           :secret_access_key => secret_access_key)
+                                                      :access_key_id => access_key_id,
+                                                      :secret_access_key => secret_access_key)
         end
         request
     end
